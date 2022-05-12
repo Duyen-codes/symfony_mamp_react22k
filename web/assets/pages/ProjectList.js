@@ -21,6 +21,29 @@ function ProjectList() {
         console.log(error);
       });
   };
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, please delete it",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`/api/project/${id}`).then(function (response) {
+          Swal.fire({
+            icon: "success",
+            title: "Project deleted successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
+      }
+    });
+  };
 }
 
 export default ProjectList;
