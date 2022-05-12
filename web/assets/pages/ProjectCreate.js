@@ -12,32 +12,33 @@ function ProjectCreate() {
   const handleSave = () => {
     setIsSaving(true);
     let formData = new FormData();
+
     formData.append("name", name);
     formData.append("description", description);
-  };
-  axios
-    .post("/api/project", formData)
-    .then(function (response) {
-      Swal.fire({
-        icon: "success",
-        title: "Project saved successfully",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      setIsSaving(false);
-      setName("");
-      setDescription("");
-    })
-    .catch(function (error) {
-      Swal.fire({
-        icon: "error",
-        title: "An error occurred",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      setIsSaving(false);
-    });
 
+    axios
+      .post("/api/project", formData)
+      .then(function (response) {
+        Swal.fire({
+          icon: "success",
+          title: "Project saved successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setIsSaving(false);
+        setName("");
+        setDescription("");
+      })
+      .catch(function (error) {
+        Swal.fire({
+          icon: "error",
+          title: "An error occurred",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setIsSaving(false);
+      });
+  };
   return (
     <Layout>
       <div className="container">

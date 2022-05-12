@@ -32,14 +32,25 @@ function ProjectList() {
       confirmButtonText: "Yes, please delete it",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`/api/project/${id}`).then(function (response) {
-          Swal.fire({
-            icon: "success",
-            title: "Project deleted successfully",
-            showConfirmButton: false,
-            timer: 1500,
+        axios
+          .delete(`/api/project/${id}`)
+          .then(function (response) {
+            Swal.fire({
+              icon: "success",
+              title: "Project deleted successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            fetchProjectList();
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: "An Error Occured!",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           });
-        });
       }
     });
   };
