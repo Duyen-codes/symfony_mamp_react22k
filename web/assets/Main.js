@@ -14,9 +14,7 @@ function Main() {
         <Routes>
           <Route exact path="/" element={<ProjectList />} />
           <Route path="/create" element={<ProjectCreate />} />
-
           <Route path="/edit/:id" element={<ProjectEdit />} />
-
           <Route path="/show/:id" element={<ProjectShow />} />
         </Routes>
       </Layout>
@@ -27,7 +25,6 @@ function Main() {
 export default Main;
 
 const root = ReactDOM.createRoot(document.getElementById("app"));
-
 root.render(
   <React.StrictMode>
     <Main />

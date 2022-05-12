@@ -6,7 +6,6 @@ import axios from "axios";
 
 function ProjectList() {
   const [projectList, setProjectList] = useState([]);
-
   useEffect(() => {
     fetchProjectList();
   }, []);
@@ -64,7 +63,7 @@ function ProjectList() {
                 </tr>
               </thead>
               <tbody>
-                {ProjectList.map((project, key) => {
+                {projectList.map((project, key) => {
                   return (
                     <tr key={key}>
                       <td>{project.name}</td>

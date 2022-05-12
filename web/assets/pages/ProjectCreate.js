@@ -93,3 +93,5 @@ function ProjectCreate() {
     </Layout>
   );
 }
+
+export default ProjectCreate;
