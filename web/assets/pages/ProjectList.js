@@ -54,6 +54,47 @@ function ProjectList() {
               Create New Project
             </Link>
           </div>
+          <div className="card-body">
+            <table className="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th width="240px">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ProjectList.map((project, key) => {
+                  return (
+                    <tr key={key}>
+                      <td>{project.name}</td>
+                      <td>{project.description}</td>
+                      <td>
+                        <Link
+                          to={`/show/${project.id}`}
+                          className="btn btn-outline-info mx-1"
+                        >
+                          Show
+                        </Link>
+                        <Link
+                          className="btn btn-outline-info mx-1"
+                          to={`/edit/${project.id}`}
+                        >
+                          Edit
+                        </Link>
+                        <button
+                          onClick={() => handleDelete(project.id)}
+                          className="btn btn-outline-danger mx-1"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </Layout>
