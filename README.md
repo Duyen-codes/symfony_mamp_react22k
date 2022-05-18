@@ -21,3 +21,7 @@ docker-compose up --build
 # Use for reference
 
 Use solely for reference material only
+
+## What I learned
+
+- using postman to test api
